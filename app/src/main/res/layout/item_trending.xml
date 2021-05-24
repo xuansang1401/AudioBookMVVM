@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:maxLines="2"
+            android:gravity="center_vertical|left"
+            android:lines="1"
+            android:padding="@dimen/keyline_2"
+            android:text="1."
+            android:textColor="@color/blu_gray_900"
+            android:textSize="13sp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="56dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="56dp"
+            app:cardCornerRadius="6dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/demo"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:maxLines="2"
+                android:gravity="center_vertical|left"
+                android:lines="1"
+                android:paddingLeft="10dp"
+                android:text="Xa em"
+                android:textColor="@color/blu_gray_900"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_auther"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/blu_gray_600"
+                android:layout_weight="2"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:textSize="11sp"
+                android:paddingRight="25dp"
+                android:text="Noo Phuoc Thinh" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#42A5F5</color> <!--Color primary (dark)-->
+    <color name="purple_500">#2196F3</color> <!--Color primary (light)-->
+    <color name="purple_600">#1565C0</color> <!--Color primary variant (dark)-->
+    <color name="purple_700">#1565C0</color> <!--Color primary variant (light)-->
+
+    <color name="green_200">#03dac6</color> <!--Color secondary-->
+    <color name="green_500">#018786</color> <!--Color secondary variant-->
+
+    <color name="red_200">#cf6679</color> <!--Color error (dark)-->
+    <color name="red_600">#b00020</color> <!--Color error (light)-->
+
+    <!--Color surface (light), color on error (light), -->
+    <!--color on surface (dark), color on surface (dark)-->
+    <color name="white_50">#ffffff</color>
+
+    <color name="black_800">#121212</color> <!--Color surface (dark)-->
+    <!--Color on secondary (light), color on background (light),-->
+    <!--color on surface (light)-->
+    <color name="black_900">#000000</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="blu_gray_900">#263238</color>
+    <color name="blu_gray_800">#37474F</color>
+    <color name="blu_gray_600">#546E7A</color>
+    <color name="colorWhite2">#EAEAEA</color>
+
+    <!--    <color name="orange_500">#FF9800</color>-->
+<!--    <color name="orange_600">#FB8C00</color>-->
+<!--    <color name="orange_700">#F57C00</color>-->
+<!--    -->
+
+</resources>

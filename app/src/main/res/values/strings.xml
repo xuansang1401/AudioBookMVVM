@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Audio Book</string>
+    <string name="home">Trang chủ</string>
+    <string name="audiobook">Sách nói</string>
+    <string name="series">Series</string>
+    <string name="zen">Zen</string>
+    <string name="account">Tài khoản</string>
+    <string name="hello">Chào bạn</string>
+    <string name="co_gi_hot">Có gì hot?</string>
+    <string name="trending">Thịnh hành</string>
+    <string name="category">Thể loại</string>
+    <string name="note_cate">Khám phá những bản sách nói với từng thể loại mà bạn mong muốn </string>
+
+    <string name="note_autio">Khám phá những bản sách nói có bản quyền chạy nhất đến từ các tác giả Việt Nam và Quốc tế</string>
+    <string name="note_home">Dành cho bạn những quốc sách nói hay và mới nhất tại  Việt Nam và quốc tế</string>
+
+    <string name="sleep">Hẹn giờ</string>
+    <string name="toggle_dark">Chế độ tối</string>
+    <string name="feedback">Phản hồi</string>
+    <string name="rate">Đánh giá</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="trending_in">Thịnh hành tại</string>
+    <string name="privacy">Chính sách-Điều khoản</string>
+
+    <string name="sleep_note">Đặt thời gian tắt cho nhạc đang phát</string>
+    <string name="toggle_dark_note">Mở chế độ tối</string>
+    <string name="feedback_note">Đề xuất một tính năng hoặc đề xuất một lỗi. Chúng tôi đánh giá cao phản hồi của bạn</string>
+    <string name="rate_note">Nếu bạn thích ứng dụng này. Vui lòng đánh giá chúng tôi 5 sao</string>
+    <string name="language_note">Tiếng Việt</string>
+    <string name="trending_in_note">Vietnam</string>
+    <string name="privacy_note">Đọc chính sách và bảo mật-điều khoản của chúng tôi</string>
+    <string name="history_note">Những bài hát bạn mới nghe gần đây</string>
+    <string name="history">Lịch sử</string>
+</resources>
