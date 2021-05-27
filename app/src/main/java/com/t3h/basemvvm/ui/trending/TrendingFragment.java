@@ -57,4 +57,9 @@ public class TrendingFragment extends Fragment {
         binding.setIsLoading(mViewModel.isLoad);
     }
 
+    @Override
+    public void onDestroyView() {
+        mViewModel.setDisposable();
+        super.onDestroyView();
+    }
 }

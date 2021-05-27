@@ -15,13 +15,13 @@ import javax.inject.Singleton
 class NetworkModule {
     @Singleton
     @Provides
-    fun providesAppConfig(@ApplicationContext appContext: Context): AppConfig {
-        return AppConfig.create(appContext)
+    fun providesStudyRequest(): AudioBookRequest {
+        return AudioBookRequest.create()
     }
 
     @Singleton
     @Provides
-    fun providesStudyRequest(): AudioBookRequest {
-        return AudioBookRequest.create()
+    fun providesAppConfig(@ApplicationContext appContext: Context): AppConfig {
+        return AppConfig.create(appContext)
     }
 }

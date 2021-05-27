@@ -18,9 +18,11 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+    fun provideAppDatabase(@ApplicationContext context: Context)
+            : AppDatabase {
         return AppDatabase.create(context)
     }
+    @Singleton
     @Provides
     fun provideDatabaseDao(appDatabase: AppDatabase): DatabaseDao {
         return appDatabase.databaseDao()

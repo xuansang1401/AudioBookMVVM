@@ -39,7 +39,7 @@ public class CategoryFragment extends Fragment {
     private CategoryViewModel viewModel;
     private CategoryFragmentBinding binding;
     private CategoryAdapter adapter;
-    private CompositeDisposable compositeDisposable;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -49,8 +49,7 @@ public class CategoryFragment extends Fragment {
         binding.rcvCategory1.setLayoutManager(
                 new StaggeredGridLayoutManager(3, RecyclerView.HORIZONTAL)
         );
-        compositeDisposable = new CompositeDisposable();
-        return binding.getRoot();
+       return binding.getRoot();
     }
 
     @Override
@@ -58,7 +57,7 @@ public class CategoryFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
 
-        compositeDisposable.add(viewModel.getCategoryData());
+       viewModel.getCategoryData();
         viewModel.category.observe(getViewLifecycleOwner(), new Observer<List<CateModel>>() {
             @Override
             public void onChanged(List<CateModel> categoryModels) {
@@ -73,7 +72,7 @@ public class CategoryFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        viewModel.setDisposable();
         super.onDestroyView();
-        compositeDisposable.dispose();
     }
 }

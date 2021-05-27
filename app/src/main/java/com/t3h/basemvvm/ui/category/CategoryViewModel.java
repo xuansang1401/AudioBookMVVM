@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -36,12 +37,12 @@ public class CategoryViewModel extends ViewModel {
     public MutableLiveData<List<CateModel>> category = new MutableLiveData<>();
     public MutableLiveData<List<Book>> book = new MutableLiveData<>();
     public LiveData<List<Book>> historyAll = new MutableLiveData<>();
-
-    public Disposable getCategoryData() {
-        return request.getCategory()
+    private CompositeDisposable disposable= new CompositeDisposable();
+    public void getCategoryData() {
+        disposable.add( request.getCategory()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .timeout(10, TimeUnit.SECONDS)
+//                .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data -> {
                             category.setValue(data);
                             isLoad.set(true);
@@ -50,22 +51,26 @@ public class CategoryViewModel extends ViewModel {
                             Log.e("sangg", "Loi: " + error);
                             isLoad.set(true);
                         }
-                );
+                ));
 
     }
 
-    public Disposable getBookByCategoryId(int id) {
-        return request.getCategory()
+    public void getBookByCategoryId(int id) {
+        disposable.add( request.getCategory()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data -> book.setValue(data.get(id).getBooks())
                         , error -> Log.e("sangg", "Loi: " + error)
-                );
+                ));
     }
 
     public void  getAllHistory(){
         historyAll=databaseDao.getAllHistory();
 
+    }
+
+    public void setDisposable(){
+        disposable.clear();
     }
 }

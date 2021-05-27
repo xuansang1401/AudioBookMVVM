@@ -13,11 +13,12 @@ import com.t3h.basemvvm.netword.AudioBookRequest;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class BookViewModel extends ViewModel {
-
+    public CompositeDisposable disposable= new CompositeDisposable();
     private AudioBookRequest request;
     public  @ViewModelInject BookViewModel(AudioBookRequest request) {
         this.request = request;
@@ -25,11 +26,12 @@ public class BookViewModel extends ViewModel {
     private MutableLiveData<Book> bookData=new MutableLiveData<>();
     public ObservableBoolean isLoad = new ObservableBoolean(false);
 
-    public Disposable getBookByID(String id) {
-        return request.getBookById(id)
+    public void getBookByID(String id) {
+        disposable.add(
+                request.getBookById(id)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .timeout(10, TimeUnit.SECONDS)
+//                .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data ->{
                             bookData.setValue(data);
                             isLoad.set(true);
@@ -38,7 +40,7 @@ public class BookViewModel extends ViewModel {
                     Log.e("sangg", "Loi: " + error);
                     isLoad.set(true);
                         }
-                );
+                ));
 
     }
 
@@ -46,4 +48,7 @@ public class BookViewModel extends ViewModel {
         return bookData;
     }
 
+    public void  setDisposable(){
+        disposable.clear();
+    }
 }

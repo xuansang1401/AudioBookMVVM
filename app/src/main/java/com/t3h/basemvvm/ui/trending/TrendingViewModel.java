@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -28,12 +29,15 @@ public class TrendingViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<Book>> trendingData = new MutableLiveData<>();
-
-    public Disposable getCategoryData() {
-        return request.getTrending()
+    private CompositeDisposable disposable= new CompositeDisposable();
+    public void setDisposable(){
+        disposable.clear();
+    }
+    public void getCategoryData() {
+        disposable.add( request.getTrending()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .timeout(10, TimeUnit.SECONDS)
+//                .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data -> {
                             trendingData.postValue(data);
                             isLoad.set(true);
@@ -42,7 +46,7 @@ public class TrendingViewModel extends ViewModel {
                             Log.e("sangg", "Loi: " + error);
                             isLoad.set(true);
                         }
-                );
+                ));
 
     }
 

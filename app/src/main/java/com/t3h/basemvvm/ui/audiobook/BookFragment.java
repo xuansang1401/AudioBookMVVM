@@ -84,4 +84,9 @@ public class BookFragment extends Fragment {
         AppUtil.imageFromUrl(binding.image, book.getCoverImage());
     }
 
+    @Override
+    public void onDestroyView() {
+        mViewModel.setDisposable();
+        super.onDestroyView();
+    }
 }

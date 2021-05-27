@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -34,12 +35,15 @@ public class HomeViewModel extends ViewModel {
     private MutableLiveData<List<Book>> listMutableLiveData = new MutableLiveData<>();
     public ObservableBoolean isLoad = new ObservableBoolean(false);
     public LiveData<List<Book>> historyAll = new MutableLiveData<>();
-
-    public Disposable getList() {
-        return request.getListBook()
+    private CompositeDisposable disposable= new CompositeDisposable();
+    public void setDisposable(){
+        disposable.clear();
+    }
+    public void getList() {
+        disposable.add( request.getListBook()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .timeout(10, TimeUnit.SECONDS)
+//                .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data -> {
                             listMutableLiveData.setValue(data);
                             isLoad.set(true);
@@ -48,7 +52,7 @@ public class HomeViewModel extends ViewModel {
                             Log.e("sangg", "Loi: " + error);
                             isLoad.set(true);
                         }
-                );
+                ));
     }
 
     public MutableLiveData<List<Book>> getData() {
@@ -58,7 +62,6 @@ public class HomeViewModel extends ViewModel {
     public void getHistory() {
         history = dao.getThreeHistory();
     }
-
 
 
 }

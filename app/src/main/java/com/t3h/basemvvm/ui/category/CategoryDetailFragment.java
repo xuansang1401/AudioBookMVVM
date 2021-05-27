@@ -87,4 +87,10 @@ public class CategoryDetailFragment extends Fragment {
     private void setAdapterList(List<Book> books){
         binding.rcvBook.setAdapter(new BookAdapter(books,getContext(),1));
     }
+
+    @Override
+    public void onDestroyView() {
+        mViewModel.setDisposable();
+        super.onDestroyView();
+    }
 }

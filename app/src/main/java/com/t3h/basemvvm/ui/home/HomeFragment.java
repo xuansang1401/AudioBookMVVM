@@ -71,4 +71,9 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroyView() {
+        mViewModel.setDisposable();
+        super.onDestroyView();
+    }
 }
