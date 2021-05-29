@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
             name="isLoading"
-            type="androidx.databinding.ObservableBoolean"></variable>
+            type="androidx.databinding.ObservableBoolean"/>
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,52 +32,54 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/purple_700">
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:background="@drawable/backgroud_rcv"
-            android:paddingBottom="@dimen/sliding_up_header"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="vertical"
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:background="@drawable/backgroud_rcv"
+                android:paddingBottom="@dimen/sliding_up_header"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thể loại"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_margin="@dimen/keyline_4"
-                    android:textColor="@color/blu_gray_900"
-                    />
-                <ProgressBar
-                    android:layout_marginTop="@dimen/keyline_4"
-                    android:indeterminateTint="@color/purple_700"
-                    android:visibility="@{!isLoading ? View.VISIBLE : View.GONE}"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/progress_bar"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_category1"
-                    android:layout_marginStart="@dimen/keyline_2"
-                    android:layout_marginEnd="@dimen/keyline_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/keyline_2"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcv_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/keyline_2"
-                    />
+                    android:orientation="vertical">
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/keyline_4"
+                        android:text="Thể loại"
+                        android:textColor="@color/blu_gray_900"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/keyline_4"
+                        android:indeterminateTint="@color/purple_700"
+                        android:visibility="@{!isLoading ? View.VISIBLE : View.GONE}" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_category1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/keyline_2"
+                        android:layout_marginEnd="@dimen/keyline_2"
+                        android:padding="@dimen/keyline_2" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/keyline_2" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
             <com.google.android.material.appbar.AppBarLayout
                 style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
                 android:layout_width="match_parent"
@@ -97,8 +101,8 @@
                         android:gravity="center"
                         android:paddingStart="30dp"
                         android:paddingTop="@dimen/keyline_2"
-                        android:paddingBottom="@dimen/keyline_5"
                         android:paddingEnd="30dp"
+                        android:paddingBottom="@dimen/keyline_5"
                         android:text="@string/note_cate"
                         android:textColor="@color/white_50"
                         android:textSize="12sp" />

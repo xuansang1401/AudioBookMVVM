@@ -8,6 +8,10 @@
         android:name="com.t3h.basemvvm.ui.home.HomeFragment"
         android:label="HomeFragment" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_homeFragment_to_bookFragment"
             app:destination="@id/bookFragment" />
     </fragment>
@@ -16,9 +20,17 @@
         android:name="com.t3h.basemvvm.ui.category.CategoryFragment"
         android:label="CategoryFragment" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_categoryFragment_to_bookFragment"
             app:destination="@id/bookFragment" />
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_categoryFragment_to_categoryDetailFragment"
             app:destination="@id/categoryDetailFragment" />
     </fragment>
@@ -27,6 +39,10 @@
         android:name="com.t3h.basemvvm.ui.trending.TrendingFragment"
         android:label="TrendingFragment" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_trendingFragment_to_bookFragment"
             app:destination="@id/bookFragment" />
     </fragment>
@@ -35,6 +51,10 @@
         android:name="com.t3h.basemvvm.ui.audiobook.BookFragment"
         android:label="BookFragment" >
         <argument
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:name="id_book"
             app:argType="string" />
     </fragment>
@@ -49,6 +69,10 @@
             android:name="name_category"
             app:argType="string" />
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_categoryDetailFragment_to_bookFragment"
             app:destination="@id/bookFragment" />
     </fragment>
@@ -57,6 +81,10 @@
         android:name="com.t3h.basemvvm.ui.account.AccountFragment"
         android:label="AccountFragment" >
         <action
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_accountFragment_to_categoryDetailFragment"
             app:destination="@id/categoryDetailFragment" />
     </fragment>

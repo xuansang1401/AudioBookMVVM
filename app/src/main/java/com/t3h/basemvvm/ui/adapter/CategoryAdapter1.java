@@ -32,17 +32,20 @@ public class CategoryAdapter1 extends RecyclerView.Adapter<CategoryAdapter1.MyVi
     @NonNull
     @Override
     public CategoryAdapter1.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // xác định view của item
         View view = LayoutInflater.from(context).inflate(R.layout.item_category_1, parent, false);
         return new CategoryAdapter1.MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //xác định dữ liệu các item ,sự kiện
         CateModel cate = list.get(position);
         initView(cate, holder);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // sử dụng navigation để chuyển sang CategoryDetailFragment
                 NavDirections dir= CategoryFragmentDirections.Companion.actionCategoryFragmentToCategoryDetailFragment(
                         cate.getId(),cate.getName()
                 );
@@ -65,8 +68,6 @@ public class CategoryAdapter1 extends RecyclerView.Adapter<CategoryAdapter1.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textViewTitle;
-        private RecyclerView recyclerView;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.tv_name);

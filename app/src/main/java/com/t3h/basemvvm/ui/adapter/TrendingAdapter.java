@@ -67,11 +67,12 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MyView
         int pos=position+1;
         holder.tvNumber.setText(pos+".");
         holder.tvContent.setText(book.getAuthor());
+        //Image View sử dụng thư viện Glide để hiện thỉ ảnh qua link
         Glide.with(context)
-                .load(book.getCoverImage())
+                .load(book.getCoverImage())// thêm link ảnh vào
                 .transition(DrawableTransitionOptions.withCrossFade())
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.imageView);
+                .error(R.drawable.logo)
+                .into(holder.imageView);//hiện thị ở đâu
     }
 
     //số phần tử

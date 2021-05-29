@@ -29,10 +29,10 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="56dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/demo"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/demo" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout

@@ -26,23 +26,22 @@ import io.reactivex.schedulers.Schedulers;
 public class CategoryViewModel extends ViewModel {
     private AudioBookRequest request;
     private DatabaseDao databaseDao;
-    public @ViewModelInject
-    CategoryViewModel(AudioBookRequest request,DatabaseDao databaseDao) {
+    public @ViewModelInject CategoryViewModel(AudioBookRequest request,DatabaseDao databaseDao) {
         this.request = request;
         this.databaseDao=databaseDao;
     }
 
     public ObservableBoolean isLoad = new ObservableBoolean(false);
 
-    public MutableLiveData<List<CateModel>> category = new MutableLiveData<>();
+    public MutableLiveData<List<CateModel>> category = new MutableLiveData<>();//LiveData dữ liệu chạy theo vòng đơi của android
     public MutableLiveData<List<Book>> book = new MutableLiveData<>();
     public LiveData<List<Book>> historyAll = new MutableLiveData<>();
     private CompositeDisposable disposable= new CompositeDisposable();
+    // gọi api lấy DL sử dụng LiveData
     public void getCategoryData() {
-        disposable.add( request.getCategory()
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-//                .timeout(10, TimeUnit.SECONDS)
+        disposable.add(request.getCategory()
+                .subscribeOn(Schedulers.newThread())// chạy trên 1 thread mới
+                .observeOn(AndroidSchedulers.mainThread())// chạy xong về main Thread
                 .subscribe(data -> {
                             category.setValue(data);
                             isLoad.set(true);

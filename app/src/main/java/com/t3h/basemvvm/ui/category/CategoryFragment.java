@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import com.t3h.basemvvm.R;
 import com.t3h.basemvvm.data.model.api.CateModel;
 import com.t3h.basemvvm.data.model.api.CategoryModel;
+import com.t3h.basemvvm.databinding.BookFragmentBinding;
 import com.t3h.basemvvm.databinding.CategoryFragmentBinding;
 import com.t3h.basemvvm.databinding.CategoryFragmentBindingImpl;
 import com.t3h.basemvvm.ui.adapter.CategoryAdapter;
@@ -37,30 +38,35 @@ import io.reactivex.disposables.Disposable;
 public class CategoryFragment extends Fragment {
 
     private CategoryViewModel viewModel;
-    private CategoryFragmentBinding binding;
+    private CategoryFragmentBinding binding;// Databinding lấy layout
     private CategoryAdapter adapter;
-
+    // láy dữ liệu từ sever về qua Retrofit trả về 1 Osevelist CateMode truyền vào LIveData để hiện thị dữ liệu bằng RCV
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = CategoryFragmentBinding.inflate(inflater, container, false);
-        binding.rcvCategory.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding = CategoryFragmentBinding.inflate(inflater, container, false);// khởi tạo layout
+
+        //List item
+        binding.rcvCategory.setLayoutManager(new LinearLayoutManager(getContext()));//Item dọc thẳng xuống
         binding.rcvCategory1.setLayoutManager(
-                new StaggeredGridLayoutManager(3, RecyclerView.HORIZONTAL)
+                new StaggeredGridLayoutManager(3, RecyclerView.HORIZONTAL)// định dạng RCV lướt ntn
         );
-       return binding.getRoot();
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
+        viewModel = new ViewModelProvider(this).get(CategoryViewModel.class);// khởi tạo VM
+        //láy dữ liệu từ server
+        viewModel.getCategoryData();
 
-       viewModel.getCategoryData();
+        // chuyển dữ liệu từ LiveData sang View
         viewModel.category.observe(getViewLifecycleOwner(), new Observer<List<CateModel>>() {
             @Override
             public void onChanged(List<CateModel> categoryModels) {
+
                 binding.rcvCategory1.setAdapter(new CategoryAdapter1(categoryModels, getContext()));
                 adapter = new CategoryAdapter(categoryModels, getContext());
                 binding.rcvCategory.setAdapter(adapter);

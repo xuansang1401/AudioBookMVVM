@@ -20,7 +20,7 @@ interface AudioBookRequest {
     @GET("book/trending")
     fun getTrending(): Observable<List<Book>>
     @GET("category/list")
-    fun getCategory(): Observable<List<CateModel>>
+    fun getCategory(): Observable<List<CateModel>> // cái này RX android
     @GET("/book?")
     fun getBookById(@Query("id") id: String): Observable<Book>
     @GET("/book/list")

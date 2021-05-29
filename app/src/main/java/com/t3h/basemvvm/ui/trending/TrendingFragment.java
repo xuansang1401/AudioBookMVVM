@@ -33,24 +33,28 @@ public class TrendingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        // xác định view
         binding=TrendingFragmentBinding.inflate(inflater, container,false);
-        initView();
-        return binding.getRoot();
-    }
-
-    private void initView() {
+        // xác định layout cảu RecyclerView
         binding.rcvTrending.setLayoutManager(new LinearLayoutManager(getContext()));
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //load data
+
+        //Khởi tạo ViewmOdel
         mViewModel = new ViewModelProvider(this).get(TrendingViewModel.class);
 
+        //lay dữ liệu từ server
         mViewModel.getCategoryData();
+        // hiện thị lên view
         mViewModel.trendingData.observe(getViewLifecycleOwner(), new Observer<List<Book>>() {
             @Override
             public void onChanged(List<Book> books) {
+
                 binding.rcvTrending.setAdapter(new TrendingAdapter(books,getContext()));
             }
         });

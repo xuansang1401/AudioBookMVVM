@@ -28,18 +28,18 @@ public class TrendingViewModel extends ViewModel {
         this.request = audioBookRequest;
     }
 
-    public MutableLiveData<List<Book>> trendingData = new MutableLiveData<>();
+    public MutableLiveData<List<Book>> trendingData = new MutableLiveData<>();//LiveData
     private CompositeDisposable disposable= new CompositeDisposable();
     public void setDisposable(){
         disposable.clear();
     }
     public void getCategoryData() {
-        disposable.add( request.getTrending()
+        disposable.add( request.getTrending()//rx android
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
 //                .timeout(10, TimeUnit.SECONDS)
                 .subscribe(data -> {
-                            trendingData.postValue(data);
+                            trendingData.postValue(data);// add data vào LiveData trending
                             isLoad.set(true);
                         }
                         , error -> {
