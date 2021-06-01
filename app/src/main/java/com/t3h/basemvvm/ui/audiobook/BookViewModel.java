@@ -8,8 +8,13 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.t3h.basemvvm.data.model.api.Book;
+import com.t3h.basemvvm.data.room.Favorite;
+import com.t3h.basemvvm.data.room.History;
+import com.t3h.basemvvm.db.DatabaseDao;
 import com.t3h.basemvvm.netword.AudioBookRequest;
 
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -20,12 +25,23 @@ import io.reactivex.schedulers.Schedulers;
 public class BookViewModel extends ViewModel {
     public CompositeDisposable disposable= new CompositeDisposable();
     private AudioBookRequest request;
-    public  @ViewModelInject BookViewModel(AudioBookRequest request) {
+    private DatabaseDao dao;
+    public  @ViewModelInject BookViewModel(
+            AudioBookRequest request,
+            DatabaseDao dao) {
         this.request = request;
+        this.dao= dao;
     }
     private MutableLiveData<Book> bookData=new MutableLiveData<>();
     public ObservableBoolean isLoad = new ObservableBoolean(false);
-
+    public void addFav(Book book){
+        dao.addFav(new Favorite("F"+book.getId(),book, new Date().getTime()));
+    }
+    public boolean setIsFavorite(String id){
+        List<Favorite> list=dao.findFavById(id);
+        if (!list.isEmpty()) return true;
+        return false;
+    }
     public void getBookByID(String id) {
         disposable.add(
                 request.getBookById(id)
@@ -50,5 +66,9 @@ public class BookViewModel extends ViewModel {
 
     public void  setDisposable(){
         disposable.clear();
+    }
+
+    public void deleteFav(Book book) {
+        dao.deleteFav("F"+book.getId());
     }
 }

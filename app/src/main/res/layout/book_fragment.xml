@@ -29,22 +29,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <ImageView
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:id="@+id/btn_back"
                         android:padding="@dimen/keyline_1"
                         android:layout_margin="@dimen/keyline_4"
                         android:src="@drawable/baseline_arrow_back_ios_white_24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
+
                     <TextView
+                        android:layout_weight="1"
                         android:id="@+id/tv_title1"
-                        android:layout_margin="@dimen/keyline_4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_margin="@dimen/keyline_4"
                         android:text="Tư duy nhanh và chậm"
                         android:textColor="@color/white_50"
-                        android:textStyle="bold"
                         android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:id="@+id/favorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="@dimen/keyline_2"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/keyline_2"
+                        android:src="@drawable/baseline_favorite_border_white_24dp"
                         />
                 </LinearLayout>
 
@@ -93,6 +106,7 @@
                     android:id="@+id/progress_bar"
                     />
                <LinearLayout
+                   android:foreground="?android:attr/selectableItemBackground"
                    android:id="@+id/btn_play"
                    android:layout_width="match_parent"
                    android:layout_height="48dp"
@@ -114,7 +128,7 @@
                        android:layout_height="match_parent"
                        android:gravity="center"
                        android:textColor="@color/white_50"
-                       android:text="Nghe thử miễn phí"
+                       android:text="Nghe thử"
                        />
                </LinearLayout>
             </LinearLayout>

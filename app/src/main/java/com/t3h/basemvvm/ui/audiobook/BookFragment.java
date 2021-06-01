@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.t3h.basemvvm.R;
 import com.t3h.basemvvm.data.model.api.Book;
@@ -74,6 +75,25 @@ public class BookFragment extends Fragment {
         });
         binding.setIsLoading(mViewModel.isLoad);
 
+        binding.favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Book book= mViewModel.getData().getValue();
+                if (book == null){
+                    Toast.makeText(v.getContext(),"Đang load dữ liệu", Toast.LENGTH_LONG);
+                    return;
+                }
+                if (!mViewModel.setIsFavorite("F"+book.getId())){
+                   mViewModel.addFav(book);
+                    binding.favorite.setImageResource(R.drawable.baseline_favorite_red_600_24dp);
+
+                }else {
+                    mViewModel.deleteFav(book);
+                    binding.favorite.setImageResource(R.drawable.baseline_favorite_border_white_24dp);
+
+                }
+            }
+        });
     }
 
     private void initDataView(Book book) {
@@ -82,6 +102,11 @@ public class BookFragment extends Fragment {
         binding.tvTitle.setText(book.getTitle());
         binding.tvTitle1.setText(book.getTitle());
         AppUtil.imageFromUrl(binding.image, book.getCoverImage());
+        if (mViewModel.setIsFavorite("F"+book.getId())){
+            binding.favorite.setImageResource(R.drawable.baseline_favorite_red_600_24dp);
+        }else {
+            binding.favorite.setImageResource(R.drawable.baseline_favorite_border_white_24dp);
+        }
     }
 
     @Override

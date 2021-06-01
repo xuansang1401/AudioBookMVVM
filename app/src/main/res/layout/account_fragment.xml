@@ -24,7 +24,7 @@
             android:id="@+id/btn_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/keyline_2"
+            android:padding="@dimen/keyline_2"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical">
 
@@ -58,10 +58,47 @@
                 android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/btn_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/keyline_2"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="match_parent"
+                    android:padding="4dp"
+                    android:src="@drawable/baseline_favorite_border_white_24dp"
+                    app:tint="@color/purple_700" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="Yêu thích"
+                    android:textColor="@color/purple_700"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nhứng bài hát được bạn yêu thích"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/btn_sleep_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/keyline_2"
+            android:padding="@dimen/keyline_2"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical">
 
@@ -99,7 +136,7 @@
             android:id="@+id/btn_feet_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/keyline_2"
+            android:padding="@dimen/keyline_2"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical">
 
@@ -137,7 +174,7 @@
             android:id="@+id/btn_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/keyline_2"
+            android:padding="@dimen/keyline_2"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical">
 
@@ -175,7 +212,7 @@
             android:id="@+id/btn_private"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/keyline_2"
+            android:padding="@dimen/keyline_2"
             android:foreground="?android:attr/selectableItemBackground"
             android:orientation="vertical">
 

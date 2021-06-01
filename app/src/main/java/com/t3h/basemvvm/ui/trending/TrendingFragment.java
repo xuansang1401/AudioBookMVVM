@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -37,6 +38,13 @@ public class TrendingFragment extends Fragment {
         binding=TrendingFragmentBinding.inflate(inflater, container,false);
         // xác định layout cảu RecyclerView
         binding.rcvTrending.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Navigation.findNavController(v).navigate(R.id.searchFragment);
+            }
+        });
         return binding.getRoot();
     }
 
@@ -54,7 +62,6 @@ public class TrendingFragment extends Fragment {
         mViewModel.trendingData.observe(getViewLifecycleOwner(), new Observer<List<Book>>() {
             @Override
             public void onChanged(List<Book> books) {
-
                 binding.rcvTrending.setAdapter(new TrendingAdapter(books,getContext()));
             }
         });

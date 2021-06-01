@@ -29,6 +29,8 @@ public class TrendingViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<Book>> trendingData = new MutableLiveData<>();//LiveData
+    public MutableLiveData<List<Book>> searchData = new MutableLiveData<>();//LiveData
+
     private CompositeDisposable disposable= new CompositeDisposable();
     public void setDisposable(){
         disposable.clear();
@@ -47,7 +49,26 @@ public class TrendingViewModel extends ViewModel {
                             isLoad.set(true);
                         }
                 ));
-
     }
 
+    public void searchData(String query){
+        disposable.add( request.getBookSearch(query)//rx android
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+//                .timeout(10, TimeUnit.SECONDS)
+                .subscribe(data -> {
+                            searchData.postValue(data);// add data vào LiveData trending
+                            isLoad.set(true);
+                        }
+                        , error -> {
+                            Log.e("sangg", "Loi: " + error);
+                            isLoad.set(true);
+                        }
+                ));
+    }
+
+
+    public void canDis(){
+        disposable.clear();
+    }
 }

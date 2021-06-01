@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/keyline_2"
     app:cardBackgroundColor="#CFD8DC"
+    android:foreground="?android:attr/selectableItemBackground"
+
     android:layout_margin="@dimen/keyline_1"
     android:layout_height="wrap_content">
 

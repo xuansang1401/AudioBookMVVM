@@ -69,7 +69,15 @@ public class CategoryDetailFragment extends Fragment {
                     setAdapterList(histories);
                 }
             });
-        } else {
+        } if (id==200){
+            mViewModel.getAllFavorite();
+            mViewModel.favoriteAll.observe(getViewLifecycleOwner(), new Observer<List<Book>>() {
+                @Override
+                public void onChanged(List<Book> favorite) {
+                    setAdapterList(favorite);
+                }
+            });
+        } else{
             mViewModel.getBookByCategoryId(id);
             mViewModel.book.observe(getViewLifecycleOwner(), new Observer<List<Book>>() {
                 @Override
@@ -78,9 +86,6 @@ public class CategoryDetailFragment extends Fragment {
                 }
             });
         }
-
-
-
     }
 
 

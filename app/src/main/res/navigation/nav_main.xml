@@ -45,6 +45,9 @@
             app:popExitAnim="@anim/slide_out_right"
             android:id="@+id/action_trendingFragment_to_bookFragment"
             app:destination="@id/bookFragment" />
+        <action
+            android:id="@+id/action_trendingFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookFragment"
@@ -88,4 +91,8 @@
             android:id="@+id/action_accountFragment_to_categoryDetailFragment"
             app:destination="@id/categoryDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.t3h.basemvvm.ui.search.SearchFragment"
+        android:label="SearchFragment" />
 </navigation>

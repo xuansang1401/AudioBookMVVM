@@ -39,6 +39,15 @@ public class AccountFragment extends Fragment {
                 Navigation.findNavController(v).navigate(directions);
             }
         });
+        binding.btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavDirections  directions= AccountFragmentDirections.Companion.actionAccountFragmentToCategoryDetailFragment(
+                        201,"Yêu thích"
+                );
+                Navigation.findNavController(v).navigate(directions);
+            }
+        });
     }
 
 }

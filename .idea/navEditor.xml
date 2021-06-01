@@ -17,6 +17,15 @@
                             <option name="y" value="72" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_accountFragment_to_categoryDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -79,18 +88,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="historyFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="291" />
-                            <option name="y" value="-432" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
@@ -112,6 +109,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="searchFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="273" />
+                            <option name="y" value="-516" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="trendingFragment">
                     <value>
                       <LayoutPositions>
@@ -124,6 +133,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_trendingFragment_to_bookFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_trendingFragment_to_searchFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -36,6 +36,8 @@ public class CategoryViewModel extends ViewModel {
     public MutableLiveData<List<CateModel>> category = new MutableLiveData<>();//LiveData dữ liệu chạy theo vòng đơi của android
     public MutableLiveData<List<Book>> book = new MutableLiveData<>();
     public LiveData<List<Book>> historyAll = new MutableLiveData<>();
+    public LiveData<List<Book>> favoriteAll = new MutableLiveData<>();
+
     private CompositeDisposable disposable= new CompositeDisposable();
     // gọi api lấy DL sử dụng LiveData
     public void getCategoryData() {
@@ -66,7 +68,9 @@ public class CategoryViewModel extends ViewModel {
 
     public void  getAllHistory(){
         historyAll=databaseDao.getAllHistory();
-
+    }
+    public void  getAllFavorite(){
+        favoriteAll=databaseDao.getAllFav();
     }
 
     public void setDisposable(){

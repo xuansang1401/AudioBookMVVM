@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.t3h.basemvvm.data.room.Favorite
 import com.t3h.basemvvm.data.room.History
 
-@Database(version = 1, exportSchema = false,
-    entities = [History::class])
+@Database(version = 2, exportSchema = false,
+    entities = [History::class, Favorite::class])
 abstract class AppDatabase : RoomDatabase() {
     abstract fun databaseDao(): DatabaseDao
     companion object {

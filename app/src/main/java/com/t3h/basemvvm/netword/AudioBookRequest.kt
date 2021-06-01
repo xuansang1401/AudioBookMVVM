@@ -26,6 +26,8 @@ interface AudioBookRequest {
     @GET("/book/list")
     fun getListBook(): Observable<List<Book>>
 
+    @GET("/search-by-name?")
+    fun getBookSearch(@Query("name") name: String): Observable<List<Book>>
     companion object {
 //    40.    90.    168.   71
         private const val BASE_URL = "http://40.90.168.71:8080/"
@@ -46,5 +48,4 @@ interface AudioBookRequest {
                 .create(AudioBookRequest::class.java)
         }
     }
-
 }

@@ -31,4 +31,6 @@
     <string name="privacy_note">Đọc chính sách và bảo mật-điều khoản của chúng tôi</string>
     <string name="history_note">Những bài hát bạn mới nghe gần đây</string>
     <string name="history">Lịch sử</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
