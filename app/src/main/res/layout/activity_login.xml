@@ -42,6 +42,7 @@
                 />
 
             <EditText
+                android:id="@+id/ed_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/keyline_2"
@@ -63,6 +64,7 @@
                 android:layout_gravity="center"
                 />
             <EditText
+                android:id="@+id/ed_password"
                 android:layout_marginStart="@dimen/keyline_2"
                 android:layout_width="match_parent"
                 android:inputType="text"
@@ -70,6 +72,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_marginTop="@dimen/keyline_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,5 +92,13 @@
             android:textStyle="bold"
             android:textColor="@color/purple_700"
             />
+
+       <com.google.android.gms.common.SignInButton
+           android:layout_marginTop="@dimen/keyline_4"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:id="@+id/btn_login_google"
+           />
     </LinearLayout>
 </layout>

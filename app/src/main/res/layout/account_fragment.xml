@@ -20,6 +20,26 @@
 
             />
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_user"
+            android:layout_width="119dp"
+            android:layout_gravity="center"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/demo"
+            app:shapeAppearance="@style/circleImageView" />
+
+        <TextView
+            android:id="@+id/tv_name_user"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blu_gray_900"
+            android:textSize="16sp"
+            android:text="Sang"
+            android:layout_gravity="center"
+
+            />
         <LinearLayout
             android:id="@+id/btn_history"
             android:layout_width="match_parent"
@@ -208,44 +228,53 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/btn_private"
+<!--        <LinearLayout-->
+<!--            android:id="@+id/btn_private"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="@dimen/keyline_2"-->
+<!--            android:foreground="?android:attr/selectableItemBackground"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="32dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:padding="4dp"-->
+<!--                    android:src="@drawable/baseline_policy_white_24dp"-->
+<!--                    app:tint="@color/purple_700" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:gravity="center_vertical"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                    android:text="@string/privacy"-->
+<!--                    android:textColor="@color/purple_700"-->
+<!--                    android:textSize="18sp" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/privacy_note"-->
+<!--                android:textSize="14sp" />-->
+<!--        </LinearLayout>-->
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_marginTop="@dimen/keyline_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/keyline_2"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="match_parent"
-                    android:padding="4dp"
-                    android:src="@drawable/baseline_policy_white_24dp"
-                    app:tint="@color/purple_700" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:text="@string/privacy"
-                    android:textColor="@color/purple_700"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/privacy_note"
-                android:textSize="14sp" />
-        </LinearLayout>
-
+            android:layout_marginStart="@dimen/keyline_5"
+            android:layout_marginEnd="@dimen/keyline_5"
+            android:text="Đăng xuất"
+            android:textAllCaps="false"
+            />
 
     </LinearLayout>
 

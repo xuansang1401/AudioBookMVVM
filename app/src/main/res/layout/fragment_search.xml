@@ -12,7 +12,6 @@
         <androidx.appcompat.widget.SearchView
             android:layout_marginTop="@dimen/keyline_2"
             android:id="@+id/search_view"
-            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

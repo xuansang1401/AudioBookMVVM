@@ -1,5 +1,6 @@
-package com.t3h.basemvvm.netword
+ package com.t3h.basemvvm.netword
 
+import com.google.gson.JsonObject
 import com.t3h.basemvvm.data.model.api.Book
 import com.t3h.basemvvm.data.model.api.CateModel
 import io.reactivex.Observable
@@ -8,10 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 interface AudioBookRequest {
@@ -20,16 +18,20 @@ interface AudioBookRequest {
     @GET("book/trending")
     fun getTrending(): Observable<List<Book>>
     @GET("category/list")
-    fun getCategory(): Observable<List<CateModel>> // cái này RX android
+    fun getCategory(): Observable<List<CateModel>>
     @GET("/book?")
     fun getBookById(@Query("id") id: String): Observable<Book>
     @GET("/book/list")
     fun getListBook(): Observable<List<Book>>
-
-    @GET("/search-by-name?")
+//    /api/v1/users/log-in
+    @GET("/search-by-name")
     fun getBookSearch(@Query("name") name: String): Observable<List<Book>>
+
+    @POST("/api/v1/users/log-in")
+    fun loginUser(
+        @Body user: JsonObject
+    ): Observable<JsonObject>
     companion object {
-//    40.    90.    168.   71
         private const val BASE_URL = "http://40.90.168.71:8080/"
         fun create(): AudioBookRequest {
             val logger =
